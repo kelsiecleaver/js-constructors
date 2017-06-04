@@ -123,7 +123,7 @@ Spellcaster.prototype.inflictDamage = function(damage){
    */
    Spellcaster.prototype.spendMana = function(cost){
       if(this.mana - cost >= 0){
-        this.mana = this.mana - cost;
+      this.mana -= cost;
         return true;
       }else{
         return false;
@@ -156,3 +156,14 @@ Spellcaster.prototype.inflictDamage = function(damage){
    * @param  {Spellcaster} target         The spell target to be inflicted.
    * @return {boolean}                    Whether the spell was successfully cast.
    */
+
+   Spellcaster.prototype.invoke = function(spell, target){
+      if(spell instanceof Spell === false){
+        return false;
+      }
+      else if(target instanceof Spellcaster === false){
+        return false;
+      }
+
+
+   };
